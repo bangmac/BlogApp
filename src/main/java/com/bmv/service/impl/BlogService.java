@@ -33,7 +33,7 @@ public class BlogService implements Service<Blog> {
     }
 
     @Override
-    public void remove(Blog blog) {
-        blogRepository.delete(blog);
+    public void remove(Long id) {
+        blogRepository.delete(id);
     }
 }

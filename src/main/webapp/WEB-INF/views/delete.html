@@ -14,7 +14,7 @@
     <th:block th:if="${message}">
         <p th:text="${message}"></p>
     </th:block>
-    <form id="editBlogForm" th:action="@{/editblog}" th:object="${blog}" method="post">
+    <form id="deleteBlogForm" th:action="@{/delete-blog}" th:object="${blog}" method="post">
         <table>
             <tbody>
             <tr>
@@ -41,7 +41,7 @@
                 <td><input th:field="*{time}"/></td>
             </tr>
             <tr>
-                <td><input type="submit" value="Edit" /></td>
+                <td><input type="submit" value="delete" /></td>
                 <td></td>
             </tr>
             </tbody>

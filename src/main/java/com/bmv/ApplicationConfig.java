@@ -68,12 +68,10 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
 //        return new ProvinceServiceImpl();
 //    }
 
-
     @Bean
     public Service Service(){
         return new BlogService();
     };
-
 
     //Thymeleaf Configuration
     @Bean
@@ -101,11 +99,12 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     }
 
     //JPA configuration
-    @Bean
-    @Qualifier(value = "entityManager")
-    public EntityManager entityManager(EntityManagerFactory entityManagerFactory) {
-        return entityManagerFactory.createEntityManager();
-    }
+//    @Bean
+//    @Qualifier(value = "entityManager")
+//    public EntityManager entityManager(EntityManagerFactory entityManagerFactory) {
+//        return entityManagerFactory.createEntityManager();
+//    }
+    //
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -129,7 +128,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
         return dataSource;
     }
 
-    @Bean
+    @Bean // bài toán chuyển tiền ngân hàng - các nghiệp vụ phải theo luồng cùng nhau
     public PlatformTransactionManager transactionManager(EntityManagerFactory emf){
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(emf);
